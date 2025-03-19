@@ -1,16 +1,21 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const cors = require('cors')
+const express = require('express');
+const newsRoutes = require('./src/routes/newRoutes');
+const errorHandler = require('./src/middlewares/errorHandler');
+require('dotenv').config();
 
-dotenv.config()
+const app = express();
 
+// Middleware
+app.use(express.json());
+app.use(express.static('public')); // Serve static files
 
-const app = express()
-app.use(express())
-app.use(cors())
+// Routes
+app.use('/api/news', newsRoutes);
 
-const port = process.env.PORT || 8000
+// Error handling
+app.use(errorHandler);
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-})
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
