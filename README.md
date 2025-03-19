@@ -1,2 +1,2 @@
 # News-Summary-Generator
-This is like a blogging application. The platform should source for news around the world and present it to users on a route.
+This is like a blogging application. The platform should source for news around the world and present it to users on a route. You can either implement web scraping or make API calls to a platform that generates news already. Asides from generating these news articles, anytime a user clicks on any news, you should make use of OpenAPI to summarize the news article before presenting it to them. So users are not reading the full news article, they are reading the summary from OpenAPI. They can then ask OpenAPI questions based on the summary that was presented to them.
